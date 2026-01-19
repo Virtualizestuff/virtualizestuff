@@ -37,56 +37,52 @@ The New-NsxSecurityPolicy cmdlet allows for the creation of a security policy w
 
 ***Disclaimer:*** *The code shown in this post is not included in the PowerNSX module. There is still work to be done as I need to write Pester tests for these cmdlets to ensure everything works as expected and doesn’t break anything else. That said all code has been used in a production environment without issue.*
 
-#### Spec Cmdlets:
+#### Spec Cmdlets
 
 * **New-NsxSecurityPolicyFirewallRuleSpec:**
-    
+
     Creates the firewall rules in XML format using the following tags:
-    
-    * **Parameters**: *Name, Category, Description, Order, Enabled, Security Group(s), Service(s), Logging, Action, Direction*
-        
+
+  * **Parameters**: *Name, Category, Description, Order, Enabled, Security Group(s), Service(s), Logging, Action, Direction*
+
 * **New-NsxSecurityPolicyGISSpec:**
-    
+
     Creates the Guest Introspection Service in XML format using the following tags:
-    
-    * **Parameters**: *Name, Category, Description, Order, Enabled, Enforced, ActionType*
-        
+
+  * **Parameters**: *Name, Category, Description, Order, Enabled, Enforced, ActionType*
+
 * **New-NsxSecurityPolicyNISSpec (Coming Soon):**
-    
 
 ---
 
-#### Cmdlets:
+#### Cmdlets
 
 * **New-NsxsecurityPolicy:**
-    
+
     This function ensures the base XML shell needed to create an empty SP exists.
-    
-    * **Parameters**: *Name, Description, Precedence, FirewallRule\[\], GuestIntrospectionService\[\], AppliedTo, ReturnObjectIdOnly*
-        
-    * **Note:** The information passed through the FirewallRule\[\] and GuestIntrospectionService\[\] parameters are handed to their respective functions to generate the XML variable(s) which is then merged with the base XML to provide a completed XML formatted request which is then sent off to the NSX Manager.
-        
+
+  * **Parameters**: *Name, Description, Precedence, FirewallRule\[\], GuestIntrospectionService\[\], AppliedTo, ReturnObjectIdOnly*
+
+  * **Note:** The information passed through the FirewallRule\[\] and GuestIntrospectionService\[\] parameters are handed to their respective functions to generate the XML variable(s) which is then merged with the base XML to provide a completed XML formatted request which is then sent off to the NSX Manager.
+
 * **Add-NsxSecurityPolicyFwRule:**
-    
+
     Allows the ability to add additional rules to an existing Security Policy.
-    
-    * **Parameters**: *SecurityPolicy, FirewallRule*
-        
+
+  * **Parameters**: *SecurityPolicy, FirewallRule*
+
 * **Add-NsxSgToSpFwRule:**
-    
+
     Add Security Group(s) to existing rules in a Security Policy.
-    
-    * **Parameters**: *SecurityPolicy*, SecurityGroup, ExecutionOrder
-        
+
+  * **Parameters**: *SecurityPolicy*, SecurityGroup, ExecutionOrder
+
 * **Add-NsxServiceToSpFwRule:**
-    
+
     Add Service(s) to existing rules in a Security Policy.
-    
-    * **Parameters**: *SecurityPolicy, Service, ExecutionOrder*
-        
+
+  * **Parameters**: *SecurityPolicy, Service, ExecutionOrder*
 
 For those like me and “new” to developing functions with PowerShell, I highly suggest reading the PowerNSX module itself, as it contains a wealth of information that has helped me wrap my head around functions.
 
-Stay tuned for the [next post](https://virtualizestuff.com/how-to-edit-security-policies-apply-them-to-security-groups-with-powernsx) where we will discuss how to edit existing security policies with PowerNSX and applying said policy to security groups.
-
-
+Stay tuned for the [next post]({{< ref "How to Edit Security Policies Apply them to Security Groups with PowerNSX" >}}) where we will discuss how to edit existing security policies with PowerNSX and applying said policy to security groups.

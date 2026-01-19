@@ -15,7 +15,7 @@ draft: false
 ---
 
 
-In the previous [post](https://virtualizestuff.com/vra-developing-a-nsx-t-blueprint-part1), I discussed how to setup a development environment, configuration settings made to the virtual machines and converting virtual machines to templates. This post assumes vRA is operational as I’ll be discussing the following topics as it relates to creating/publishing the NSX-T Blueprint that will be used to deploy PKS.
+In the previous [post]({{< ref "vRA Developing a NSXT Blueprint Part1" >}}), I discussed how to setup a development environment, configuration settings made to the virtual machines and converting virtual machines to templates. This post assumes vRA is operational as I'll be discussing the following topics as it relates to creating/publishing the NSX-T Blueprint that will be used to deploy PKS.
 
 ## Network Profiles & Reservation
 
@@ -95,9 +95,8 @@ Figure10 – Blank canvas
 The first thing to do is drag some network constructs to the canvas Figure11:
 
 * 1 x Existing Network
-    
+
 * 2 x On-Demand NAT Network
-    
 
 ![Diagram showing a network blueprint for an NSX-T environment. Three lines connect "On-Demand NAT Network" to entities labeled "dVSProd/Mgmt_V...," "vSpherevPodRout...," and "vSphereTransiNAT." Categories are listed on the left, including Network & Security.](image-11.jpeg)
 
@@ -152,54 +151,52 @@ Figure20 – Design Canvas with all required networks, virtual machines and soft
 Below is a breakdown of the dependency order for the virtual machines inside the blueprint:
 
 1. nsxt-vPodRouter
-    
+
 2. nsxt-dc
-    
+
     * nsxt-esxi-01
-        
+
     * nsxt-esxi-02
-        
+
     * nsxt-esxi-03
-        
+
     * nsxt-esxi-04
-        
+
     * nsxt-esxi-05
-        
+
     * nsxt-esxi-06
-        
+
 3. nsxt-vcsa-01
-    
+
 4. nsxt
-    
+
     1. nsxt-ctrl-01
-        
+
     2. nsxt-ctrl-02
-        
+
     3. nsxt-ctrl-03
-        
+
         * nsxt-edge-01
-            
+
         * nsxt-edge-02
-            
+
 5. nsxt-controlcenter
-    
+
     * SetExternalIP
-        
+
     * SetStaticRoute
-        
 
 ## vRO PowerShell Host / Event Subscription
 
 Since this is a nested environment we will need to enable the following security policies; *Promiscuous Mode*, *Forged Transits*, and *MAC Address Changes* in order for the virtual machines to communicate. To accomplish we will leverage Event Subscription to initiate a PowerCLI script via a Powershell host in VRO due to my lack of javascript experience but is something I’m working on it  ;).
 
 1. Add PowerShell Host
-    
+
     ![Screenshot of VMware vRealize Orchestrator showing a task to "Add a PowerShell host" with a message indicating successful addition. The interface includes a schema workflow with steps like "Is SSL?," "Construct URL," and "Import a certificate." Various folders and tasks are displayed on the left pane.](image-21.png)
-    
+
 2. Invoke an External Script  
     In our case, it’s just a simple .ps1 file with `Write-Output “Testing ;)”` to validate things work. You can see in the screenshot above Invoke an external script ran successfully.  
     **Important:** In order to get the scripts to execute successfully I had to update the PowerShell plugin from *1.0.11* to ***1.0.13*** after doing so the scripts ran without issue.
-    
 
 ![Screenshot of Windows PowerShell ISE with a script that outputs "Testing ;)".](image-22.png)
 

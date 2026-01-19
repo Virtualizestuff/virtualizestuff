@@ -16,7 +16,7 @@ draft: false
 
 ## Video Guide
 
-{{< youtube KaeoZm_VRhk >}} 
+{{< youtube KaeoZm_VRhk >}}
 
 The video above demonstrates the cmdlets discussed in this post.
 
@@ -26,29 +26,28 @@ All code used in this demo can be found in my Github repository [here](https://g
 
 ## Text Guide
 
-In the previous post found [here](https://virtualizestuff.com/how-to-create-nsx-security-policies-with-rules-using-powernsx), we discussed how to create security policies with PowerNSX. In this post, I’ll demonstrate how to edit existing security policy firewall rules then apply security policies to security groups with PowerNSX.
+In the previous post found [here]({{< ref "How to Create NSX Security Policies with Rules using PowerNSX" >}}), we discussed how to create security policies with PowerNSX. In this post, I'll demonstrate how to edit existing security policy firewall rules then apply security policies to security groups with PowerNSX.
 
 * **Edit-NsxSecurityPolicyFwRule:**  
     Edit existing Security Policy firewall rules
-    
-    * **Parameters**: *SecurityPolicy, FirewallRule, ExecutionOrder, ReturnObjectIdOnly*
-        
+
+  * **Parameters**: *SecurityPolicy, FirewallRule, ExecutionOrder, ReturnObjectIdOnly*
+
 * **Add-NsxApplySpToSg:**  
     Apply security policy to security group(s)
-    
-    * **Parameters**: *SecurityPolicy, SecurityGroup\[\], ReturnObjectIdOnly*
 
-That it! This is a short and sweet post. Stay tuned for the [last post](https://virtualizestuff.com/how-to-remove-nsx-security-policies-with-rules-using-powernsx) in this series where we’ll discuss how to remove NSX security policy objects using PowerNSX:
+  * **Parameters**: *SecurityPolicy, SecurityGroup\[\], ReturnObjectIdOnly*
+
+That it! This is a short and sweet post. Stay tuned for the [last post]({{< ref "How to Remove NSX Security Policies with Rules using PowerNSX" >}}) in this series where we'll discuss how to remove NSX security policy objects using PowerNSX:
 
 1. Remove a specific NSX security policy rule (***Remove-NsxSecurityPolicyFwRule***)
-    
+
 2. Remove a security group(s) from an NSX security policy rule (***Remove-NsxSgFromSpFwRule***)
-    
+
 3. Remove a service from an NSX security policy rule (***Remove-NsxServiceFromSPFwRule***)
-    
+
 4. Remove an applied security policy from a security group(s) (***Remove-NsxApplySpFromSg***)
-    
+
 5. Remove entire NSX security policy (***a native PowerNSX cmdlet: Remove-NsxSecurityPolicy***)
-    
 
 As well as how to properly decommission NSX Security Groups in order to prevent sync issues.

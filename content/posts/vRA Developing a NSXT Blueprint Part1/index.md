@@ -21,22 +21,21 @@ draft: false
 
 In today’s post, we will I’ll be talking about developing an NSX-T blueprint for vRealize Automation. Having developed live lab exams in the past using vCloud Director I figured it would be interesting to do the same thing but with vRealize Automation and NSX-V. I initially started simple creating a 3-node vSAN cluster blueprint to get my feet wet and work out any “gotchas”. After successfully deploying said blueprint I decided to take it further this time deploying a full NSX-T environment. NSX-T has been gaining traction in the enterprise space so it makes sense and would allow our organization to leverage it for training and demonstrations.
 
-## Requirements:
+## Requirements
 
 * Multiple deployments with repeatable results
-    
+
 * Dynamic routing (BGP)
-    
+
 * Allow for installation of solutions like PCF / PKS
-    
+
 * Demonstrate NSX-T capabilities
-    
+
 * 3 tier app deployed and operational
-    
+
 * Approval policy in place (due to the size of the blueprint)
-    
+
 * Lease duration
-    
 
 ## NSX-T Blueprint Design
 
@@ -53,9 +52,8 @@ The diagram above (Figure1) shows the end game of the NSX-T blueprint but before
 **Important:**
 
 1. Make sure *Promiscuous mode*, *MAC address change*, and *Forged transmit* have been set to “Accept” otherwise our nested virtual machines and the NSX-T Overlay won’t work properly.
-    
+
 2. Set the MTU size on the vDS that’s hosting the nested environment to 9000. In the dev environment, I couldn’t get jumbo frames (9000) to successfully work when testing with vmkping so I dropped the MTU down to 8000 for the nested vDS and VMkernel interfaces. I believe this has to do with VXLAN overhead but need to capture some packets to confirm.
-    
 
 ![Screenshot of the VMware vSphere Web Client interface showing the configuration of NSX Edge interfaces. Various interfaces are listed with details like name, IP address, and connection status, including both uplinks and internal connections.](image-02.png)
 
@@ -73,179 +71,171 @@ Figure4 – NSXT Dummy Network
 
 To keep this post manageable I won’t be providing the step by step details as most folks are familiar with deploy vSphere components and the [NSX-T documentation](https://docs.vmware.com/en/VMware-NSX-T/2.1/com.vmware.nsxt.install.doc/GUID-3E0C4CEC-D593-4395-84C4-150CD6285963.html) is pretty good too. I will, however, provide screenshots of specific settings made to the NSX-T environment:
 
-### DOMAIN CONTROLLER:
+### DOMAIN CONTROLLER
 
 * Update/Patch OS
-    
+
 * Install the following roles:
-    
-    * AD DS
-        
-    * DHCP
-        
-    * DNS
-        
-    * File and Storage Services (NFS)
-        
 
-### CONTROLCENTER:
+  * AD DS
+
+  * DHCP
+
+  * DNS
+
+  * File and Storage Services (NFS)
+
+### CONTROLCENTER
 
 * Update/Patch OS
-    
-* Customize Windows Profile – This is why we don’t want to use a custom spec in vRA
-    
-    * SSH, WinSCP, RDCMan, Chrome, Firefox, and Map a Network Share
-        
-* Additional configurations:
-    
-    * vRA Configuration will be discussed in follow up post:
-        
-        * Install vRA guest agent
-            
-            * Change default route metric \[Software Component\]
-                
-            * Assign static IP Address \[Software Component\]
-                
-            * Bind IP Address to ControlCenter \[Bindings\]
-                
-    * Rename Network Adapters (Figure5)
-        
-    * Add persistent route to the network you will be RDPing from. (Figure6)
-        
-    * Start nested VMs via Task Scheduler during startup (Figure7)
-        
-        ![Screenshot of a Windows Network Connections folder showing two network connections: "External" with vmxnet3 Ethernet Adapter and "Internal" with vmxnet3 Ethernet Adapter #2.](image-05.png)
-        
-        Figure5 – Rename Network Adapters
-        
-        ![A Windows PowerShell window displaying a command output of persistent routes. There are two routes listed with their network addresses, netmasks, gateway addresses, and metrics.](image-06.png)
-        
-        Figure6 – Add Persistent Route
-        
-        ![Screenshot of Windows PowerShell ISE with a script to connect to a vCenter server and start virtual machines. The script includes lines for connecting to the server, retrieving VMs, and starting them.](image-07.png)
-        
-        Figure7 – Start Nested VMs
-        
-* Applications Installed:
-    
-    * mtputty
-        
-    * RDCMan
-        
-    * WinSCP
-        
-    * Chrome / Firefox
-        
-        * Bookmarks
-            
 
-### VCENTER (Nested):
+* Customize Windows Profile – This is why we don’t want to use a custom spec in vRA
+
+  * SSH, WinSCP, RDCMan, Chrome, Firefox, and Map a Network Share
+
+* Additional configurations:
+
+  * vRA Configuration will be discussed in follow up post:
+
+    * Install vRA guest agent
+
+      * Change default route metric \[Software Component\]
+
+      * Assign static IP Address \[Software Component\]
+
+      * Bind IP Address to ControlCenter \[Bindings\]
+
+  * Rename Network Adapters (Figure5)
+
+  * Add persistent route to the network you will be RDPing from. (Figure6)
+
+  * Start nested VMs via Task Scheduler during startup (Figure7)
+
+        ![Screenshot of a Windows Network Connections folder showing two network connections: "External" with vmxnet3 Ethernet Adapter and "Internal" with vmxnet3 Ethernet Adapter #2.](image-05.png)
+
+        Figure5 – Rename Network Adapters
+
+        ![A Windows PowerShell window displaying a command output of persistent routes. There are two routes listed with their network addresses, netmasks, gateway addresses, and metrics.](image-06.png)
+
+        Figure6 – Add Persistent Route
+
+        ![Screenshot of Windows PowerShell ISE with a script to connect to a vCenter server and start virtual machines. The script includes lines for connecting to the server, retrieving VMs, and starting them.](image-07.png)
+
+        Figure7 – Start Nested VMs
+
+* Applications Installed:
+
+  * mtputty
+
+  * RDCMan
+
+  * WinSCP
+
+  * Chrome / Firefox
+
+    * Bookmarks
+
+### VCENTER (Nested)
 
 * HA Advanced Settings:
-    
-    * `das.ignoreRedundantNetWarning: true`
-        
-    * `das.isolationaddress: 10.210.10.11` (DC)
-        
-    * `das.usedefaultisolationaddress: false`
-        
+
+  * `das.ignoreRedundantNetWarning: true`
+
+  * `das.isolationaddress: 10.210.10.11` (DC)
+
+  * `das.usedefaultisolationaddress: false`
+
 * Alarm Definitions Disabled:
-    
-    * vSAN Build Recommendation Engine build recommendation
-        
-    * vSAN Performance service status
-        
-    * Registration/unregistration of third-party IO filter storage providers fails on a host
-        
+
+  * vSAN Build Recommendation Engine build recommendation
+
+  * vSAN Performance service status
+
+  * Registration/unregistration of third-party IO filter storage providers fails on a host
+
 * vSAN Settings Silenced for both Clusters (RVC):
-    
-    * SCSI controller is VMware certified
-        
 
-### NSX-T:
+  * SCSI controller is VMware certified
 
-* #### **IP** Pools:
-    
-    * ESXi-Pool:
-        
-        * IP Range: 10.210.13.21 – 10.210.13.26
-            
-        * Gateway: 10.210.13.1
-            
+### NSX-T
+
+* #### **IP** Pools
+
+  * ESXi-Pool:
+
+    * IP Range: 10.210.13.21 – 10.210.13.26
+
+    * Gateway: 10.210.13.1
+
+  * CIDR: 10.210.13.0/24
+
+  * DNS Servers: 10.210.10.11
+
+  * \* DNS Suffix: tsc.local
+
+  * Edge-Pool:
+
+    * IP Range: 10.210.13.27 – 10.210.13.28
+
+    * Gateway: 10.210.13.1
+
     * CIDR: 10.210.13.0/24
-        
+
     * DNS Servers: 10.210.10.11
-        
-    * \* DNS Suffix: tsc.local
-        
-    * Edge-Pool:
-        
-        * IP Range: 10.210.13.27 – 10.210.13.28
-            
-        * Gateway: 10.210.13.1
-            
-        * CIDR: 10.210.13.0/24
-            
-        * DNS Servers: 10.210.10.11
-            
-        * DNS Suffix: tsc.local
-            
-    
+
+    * DNS Suffix: tsc.local
+
 * #### **Fabric**
-    
-    * Transport Zones
-        
-        * TZ-Overlay
-            
-        * TZ-VLAN
-            
-    * Nodes
-        
-        * Hosts:
-            
-            * Prep only the Compute-PKS Cluster (Figure8)
-                
-        * Edges:
-            
-            * nsxt-edge-01
-                
-            * nsxt-edge-02 (Not added to edge cluster)
-                
-        * Transport Nodes:
-            
-            * sa-esxi-01
-                
-            * sa-esxi-02
-                
-            * sa-esxi-03
-                
-            * nsxt-edge-01
-                
-    
-* #### Routing:
-    
-    * Tier0 (Figure9)
-        
-        * T0 BGP neighbor with vPodRouter (Figure10a)
-            
-        * vPodRouter BGP neighbor with T0 (Figure10b)
-            
-        * Redistribute Routes: All Sources (Figure11)
-            
-    * Tier1 (Figure12)
-        
-        * Route Advertisement (Figure13)
-            
-    
-* #### Load Balancing:
-    
-    * Load Balancers (Figure14)
-        
-    * Virtual Servers (Figure15)
-        
-    * Server Pools (Figure16)
-        
-    
+
+  * Transport Zones
+
+    * TZ-Overlay
+
+    * TZ-VLAN
+
+  * Nodes
+
+    * Hosts:
+
+      * Prep only the Compute-PKS Cluster (Figure8)
+
+    * Edges:
+
+      * nsxt-edge-01
+
+      * nsxt-edge-02 (Not added to edge cluster)
+
+    * Transport Nodes:
+
+      * sa-esxi-01
+
+      * sa-esxi-02
+
+      * sa-esxi-03
+
+      * nsxt-edge-01
+
+* #### Routing
+
+  * Tier0 (Figure9)
+
+    * T0 BGP neighbor with vPodRouter (Figure10a)
+
+    * vPodRouter BGP neighbor with T0 (Figure10b)
+
+    * Redistribute Routes: All Sources (Figure11)
+
+  * Tier1 (Figure12)
+
+    * Route Advertisement (Figure13)
+
+* #### Load Balancing
+
+  * Load Balancers (Figure14)
+
+  * Virtual Servers (Figure15)
+
+  * Server Pools (Figure16)
 
 ![A screenshot of a software interface displaying a list of hosts under "Mgmt" and "Compute-PKS" categories. Hostnames, IP addresses, OS types, OS versions, deployment statuses, NSX versions, and connectivity statuses are shown. Some entries indicate "NSX Installed" with a status of "Up."](image-08.png)
 
@@ -335,4 +325,4 @@ Create a temp vDS port group to put your virtual machines on before converting t
 
 Figuer25 – Network Adapter 5 still attached to Dev LS
 
-With testing complete and all virtual machine network adapters on a temp port group its now time to shut down the NSX-T dev environment and convert the virtual machines to templates save your wrist and use PowerCLI to accomplish this! That’s going to wrap up this post stay tuned for the next [post](https://virtualizestuff.com/vra-developing-a-nsx-t-blueprint-part2), where we will go through the process of creating our NSX-T vRA Blueprint!
+With testing complete and all virtual machine network adapters on a temp port group its now time to shut down the NSX-T dev environment and convert the virtual machines to templates save your wrist and use PowerCLI to accomplish this! That's going to wrap up this post stay tuned for the next [post]({{< ref "vRA Developing a NSXT Blueprint Part2" >}}), where we will go through the process of creating our NSX-T vRA Blueprint!

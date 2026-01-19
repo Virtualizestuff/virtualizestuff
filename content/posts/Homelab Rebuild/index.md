@@ -17,19 +17,18 @@ Seeing how I have some free time on my hands I decided why not rebuild my homela
 This will be a short series of me rebuilding my homelab with vSphere/vCenter:
 
 1. Environment Overview
-    
-2. [Create a Custom ESXi Image](https://virtualizestuff.com/how-to-create-a-custom-esxi-image)
-    
-3. [Installing a Custom ESXi 6.5 Image](https://virtualizestuff.com/installing-a-custom-esxi-65-image)
-    
-4. [Configure a vSphere 6.5 ESXi Host (Part1)](https://virtualizestuff.com/how-to-configure-a-vsphere-65-host-part1)
-    
-5. [Configure a vSphere 6.5 ESXi Host (Part2)](https://virtualizestuff.com/how-to-configure-a-vsphere-65-host-part2)
-    
+
+2. [Create a Custom ESXi Image]({{< ref "How to Create a Custom ESXi Image" >}})
+
+3. [Installing a Custom ESXi 6.5 Image]({{< ref "Installing a Custom ESXi 65 Image" >}})
+
+4. [Configure a vSphere 6.5 ESXi Host (Part1)]({{< ref "How to Configure a vSphere 65 Host Part1" >}})
+
+5. [Configure a vSphere 6.5 ESXi Host (Part2)]({{< ref "How to Configure a vSphere 65 Host Part2" >}})
+
 6. Setting up Infrastructure Components (AD / DNS / DHCP)
-    
+
 7. Deploying a vCenter 6.5 Appliance
-    
 
 ## Environment Overview
 

@@ -16,11 +16,11 @@ draft: false
 
 ## Video Guide
 
-{{< youtube 5XK7oV2gCJM >}} 
+{{< youtube 5XK7oV2gCJM >}}
 
 ## Text Guide
 
-In [part 1](https://virtualizestuff.com/how-to-configure-a-vsphere-65-host-part1) of Configure a vSphere 6.5 Host, we configured NTP Server, SSH Service, created a vSwitch, mounted a NFS share, and redirected the scratch and syslog files. In part 2 we’re going to configure iSCSI software adapter with port binding and create a VMFS6 datastore. The demo section provides video demonstration of everything discussed in this post.
+In [part 1]({{< ref "How to Configure a vSphere 65 Host Part1" >}}) of Configure a vSphere 6.5 Host, we configured NTP Server, SSH Service, created a vSwitch, mounted a NFS share, and redirected the scratch and syslog files. In part 2 we're going to configure iSCSI software adapter with port binding and create a VMFS6 datastore. The demo section provides video demonstration of everything discussed in this post.
 
 ### Create Two VMKernal interfaces
 
@@ -29,36 +29,34 @@ To begin we need to create two VMkernel interfaces using the information below,�
 **1st VMkernel:**
 
 * Port group name: *iSCSI-01*
-    
+
 * Virtual Switch: *Storage vSwitch*
-    
+
 * VLAN ID: *60*
-    
+
 * IPv4 Setting:
-    
-    * Configuration: *Static*
-        
-    * Address: *192.168.60.20*
-        
-    * Subnet mask: *255.255.255.0*
-        
+
+  * Configuration: *Static*
+
+  * Address: *192.168.60.20*
+
+  * Subnet mask: *255.255.255.0*
 
 **2nd VMkernel:**
 
 * Port group name: *iSCSI-02*
-    
+
 * Virtual Switch: *Storage vSwitch*
-    
+
 * VLAN ID: *60*
-    
+
 * IPv4 Setting:
-    
-    * Configuration: *Static*
-        
-    * Address: *192.168.60.21*
-        
-    * Subnet mask: *255.255.255.0*
-        
+
+  * Configuration: *Static*
+
+  * Address: *192.168.60.21*
+
+  * Subnet mask: *255.255.255.0*
 
 ![A screenshot of the VMware ESXi interface displaying the "Add VMkernel NIC" settings. The window includes options for port group, virtual switch, VLAN ID, MTU, IP version, and IPv4 settings, including address and subnet mask. The "Create" and "Cancel" buttons are visible at the bottom.](image-01.png)
 
@@ -118,7 +116,7 @@ Figure-8
 That’s a wrap…stay tuned for the next post where we’ll deploy a 2016 server with the following roles:
 
 * Active Directory
-    
+
 * DHCP
-    
+
 * DNS

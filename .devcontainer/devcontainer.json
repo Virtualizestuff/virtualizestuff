@@ -45,7 +45,7 @@
     }
   },
 
-  "remoteUser": "vscode",
+  "remoteUser": "root",
 
   "features": {
     "ghcr.io/devcontainers/features/hugo:1": {}

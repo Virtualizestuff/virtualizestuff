@@ -15,7 +15,7 @@ draft: false
 ---
 
 
-In the previous post found [here](https://virtualizestuff.com/how-to-create-a-custom-esxi-image) we created a custom ESXi image. The steps in that post were written for vSphere 6.0 however the steps hasn’t changed much from vSphere 6.0 to vSphere 6.5, just make sure to install PowerCLI 6.5. I recently upgraded to the [Netgear M4300-8X8F](http://amzn.to/2htTMa4) (review coming soon) as my infiniband switch is no long supported with vSphere 6.5. This has made creating a custom ESXi 6.5 image a much simpler process by adding a single VIB from Synology to support VAAI (hardware acceleration) for NFS datastores.
+In the previous post found [here]({{< ref "How to Create a Custom ESXi Image" >}}) we created a custom ESXi image. The steps in that post were written for vSphere 6.0 however the steps hasn’t changed much from vSphere 6.0 to vSphere 6.5, just make sure to install PowerCLI 6.5. I recently upgraded to the [Netgear M4300-8X8F](http://amzn.to/2htTMa4) (review coming soon) as my infiniband switch is no long supported with vSphere 6.5. This has made creating a custom ESXi 6.5 image a much simpler process by adding a single VIB from Synology to support VAAI (hardware acceleration) for NFS datastores.
 
 But before we jump into the installation process it’s important to understand the requirements for ESXi. VMware’s documentation center for vSphere 6.5 found [here](https://pubs.vmware.com/vsphere-65/index.jsp#com.vmware.vsphere.install.doc/GUID-E170469F-9C33-4950-8672-9825501557AE.html) provides all the necessary requirements / recommendations needed to successfully run ESXi on x86 hardware.
 

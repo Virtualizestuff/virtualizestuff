@@ -43,12 +43,7 @@ I work with organizations on architecture design, implementation guidance, troub
 
 Fill out the form below and I'll get back to you within 24-48 hours to discuss your project needs.
 
-<form name="consulting-inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form" style="max-width: 600px; margin: 2rem 0;">
-  <!-- Hidden field for bot protection -->
-  <input type="hidden" name="form-name" value="consulting-inquiry">
-  <div style="display: none;">
-    <label>Don't fill this out if you're human: <input name="bot-field"></label>
-  </div>
+<form action="https://formspree.io/f/meeeklle" method="POST" class="contact-form" style="max-width: 600px; margin: 2rem 0;">
   <div style="margin-bottom: 1.5rem;">
     <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Name *</label>
     <input type="text" name="name" id="name" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;">

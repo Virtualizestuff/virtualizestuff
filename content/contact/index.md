@@ -37,7 +37,9 @@ I help organizations build developer platforms that accelerate delivery and impr
 
 ### How I Can Help
 
-I work with organizations on architecture design, implementation guidance, troubleshooting complex issues, and training teams. Whether you're building a new platform from scratch or modernizing existing infrastructure, I can help you achieve your goals.
+I'm a certified platform and infrastructure specialist working with organizations on architecture design, implementation guidance, troubleshooting complex issues, and training teams. Whether you're building a new platform from scratch or modernizing existing infrastructure, I can help you achieve your goals.
+
+[View my certifications on Credly →](https://www.credly.com/users/virtualizestuff)
 
 ### Contact Me
 
@@ -85,10 +87,8 @@ Fill out the form below and I'll get back to you within 24-48 hours to discuss y
 
 ---
 
-#### Other Ways to Connect
+### Other Ways to Connect
 
 **Email:** [contact@virtualizestuff.com](mailto:contact@virtualizestuff.com)
 
 **LinkedIn:** Connect with me on [LinkedIn](https://linkedin.com/in/virtualizstuff) to discuss your project
-
-**Credly:** View my certifications and credentials on [Credly](https://www.credly.com/users/virtualizestuff)

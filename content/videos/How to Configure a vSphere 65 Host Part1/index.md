@@ -47,7 +47,7 @@ Figure-2
 
 ### Configure SSH Service
 
-Next let’s enable the SSH service on the host(s) as shown in *Figure-3*. This will allow us to easily SSH into our hosts for additional troubleshooting should an issue arise like the one I recently about [here](http://www.virtualizestuff.com/2017/01/02/iscsi-binding-dude-where-is-unused-adapters/):
+Next let's enable the SSH service on the host(s) as shown in *Figure-3*. This will allow us to easily SSH into our hosts for additional troubleshooting should an issue arise like the one I recently about [here]({{< ref "vSphere 65 iSCSI Binding BugDude Wheres My Unused Adapters" >}}):
 
 ![Screenshot of a VMware ESXi interface showing a list of services under the "Services" tab. The TSM-SSH service is highlighted, indicating its status as "Stopped". The "Actions" dropdown menu is open, displaying options for service management.](image-03.png)
 

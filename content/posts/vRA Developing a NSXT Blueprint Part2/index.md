@@ -41,7 +41,7 @@ During a Livefire training event for Hybrid Cloud in Boston a couple weeks ago I
 
 #### SetExternalIP
 
-The first software component I created was SetExternalIP and created a property called “cc\_ip”. We will use this property later when we configure binding. Then proceeded to Actions where I created a basic script that sets the IP address of the External interface. I take the IP address based on the cc\_ip property and assign it to \[string\]$IP. Line 1 of the code below ensure the variable is a string then passes it to the -IPAddress property of  New-NetIPAddress cmdlet. The -InterfaceAlias property references the network adapter “External” that was changed in the previous [post](http://www.virtualizestuff.com/2018/05/21/vra-developing-a-nsx-t-blueprint/).
+The first software component I created was SetExternalIP and created a property called “cc\_ip”. We will use this property later when we configure binding. Then proceeded to Actions where I created a basic script that sets the IP address of the External interface. I take the IP address based on the cc\_ip property and assign it to \[string\]$IP. Line 1 of the code below ensure the variable is a string then passes it to the -IPAddress property of  New-NetIPAddress cmdlet. The -InterfaceAlias property references the network adapter “External” that was changed in the previous [post]({{< ref "vRA Developing a NSXT Blueprint Part1" >}}).
 
 ![Edit Software interface showing the "SetExternalIP" properties. The table includes a property named "cc_ip" with a description "External IP for ControlCenter VM," and its type is "String." Options for encryption, override, requirement, and computation are set to 'No' or 'Yes' as displayed. Navigation buttons are at the bottom.](image-04.jpeg)
 

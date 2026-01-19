@@ -1,0 +1,29 @@
+/* Main menu header logo sizing */
+.main-menu img.logo {
+    height: 4rem !important;
+    width: auto;
+    max-height: none !important;
+    max-width: none !important;
+    object-fit: contain !important;
+}
+
+/* Center align menu items with logo */
+.main-menu {
+    align-items: flex-end !important;
+}
+
+.main-menu>div {
+    align-items: flex-end !important;
+}
+
+/* Remove borders between lines in GitHub Gist embeds */
+.prose .gist,
+.gist {
+    --tw-prose-td-borders: transparent !important;
+}
+
+.prose :where(.gist table):not(:where([class~="not-prose"], [class~="not-prose"] *)),
+.prose :where(.gist tbody td):not(:where([class~="not-prose"], [class~="not-prose"] *)),
+.prose :where(.gist table tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border: none !important;
+}

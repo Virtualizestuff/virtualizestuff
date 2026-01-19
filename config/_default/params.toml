@@ -1,0 +1,131 @@
+colorScheme = "github"
+customCSS = ["css/custom.css"]
+defaultAppearance = "dark"
+autoSwitchAppearance = false
+enableA11y = false
+enableSearch = true
+enableCodeCopy = true
+mainSections = ["posts", "videos"]
+enableStructuredBreadcrumbs = false
+replyByEmail = false
+disableImageOptimization = false
+disableImageOptimizationMD = false
+defaultFeaturedImage = "/img/background.jpg"
+defaultBackgroundImage = "/img/background.jpg"
+highlightCurrentMenuArea = true
+smartTOC = true
+smartTOCHideUnfocusedChildren = false
+disableTextInHeader = true
+hotlinkFeatureImage = false
+fingerprintAlgorithm = "sha512"
+giteaDefaultServer = "https://git.fsfe.org"
+forgejoDefaultServer = "https://v11.next.forgejo.org"
+firebase = { }
+fathomAnalytics = { }
+umamiAnalytics = { }
+selineAnalytics = { }
+
+[buymeacoffee]
+identifier = "virtualizestuff"
+globalWidget = true
+globalWidgetMessage = ""
+globalWidgetColor = "#FFDD00"
+globalWidgetPosition = "Right"
+
+verification = { }
+rssnext = { }
+advertisement = { }
+
+[header]
+layout = "fixed"
+
+[footer]
+showMenu = true
+showCopyright = true
+showThemeAttribution = true
+showAppearanceSwitcher = true
+showScrollToTop = true
+
+[homepage]
+layout = "background"
+showRecent = true
+showRecentItems = 18
+showMoreLink = false
+showMoreLinkDest = "/posts/"
+cardView = true
+cardViewScreenWidth = false
+layoutBackgroundBlur = true
+disableHeroImageFilter = false
+
+[article]
+showDate = true
+showViews = false
+showLikes = false
+showDateOnlyInArticle = false
+showDateUpdated = false
+showAuthor = true
+showHero = true
+heroStyle = "background"
+layoutBackgroundBlur = true
+layoutBackgroundHeaderSpace = true
+showBreadcrumbs = true
+showDraftLabel = true
+showEdit = true
+editURL = "https://github.com/Virtualizestuff/virtualizestuff/tree/main/content"
+editAppendPath = true
+seriesOpened = true
+showHeadingAnchors = true
+showPagination = true
+invertPagination = false
+showReadingTime = true
+showTableOfContents = true
+showRelatedContent = false
+relatedContentLimit = 6
+showTaxonomies = true
+showCategoryOnly = false
+showAuthorsBadges = true
+showWordCount = false
+showSummary = true
+showZenMode = false
+sharingLinks = [ "linkedin", "twitter", "whatsapp", "telegram", "pinterest", "reddit", "facebook", "email"]
+
+[list]
+showHero = true
+heroStyle = "background"
+layoutBackgroundBlur = true
+layoutBackgroundHeaderSpace = false
+showBreadcrumbs = false
+showSummary = false
+showViews = false
+showLikes = false
+showTableOfContents = false
+showCards = true
+orderByWeight = false
+groupByYear = false
+cardView = true
+cardViewScreenWidth = false
+constrainItemsWidth = false
+
+[sitemap]
+excludedKinds = []
+
+[taxonomy]
+showTermCount = true
+showHero = true
+heroStyle = "background"
+showBreadcrumbs = false
+showViews = false
+showLikes = false
+showTableOfContents = true
+cardView = false
+
+[term]
+showHero = true
+heroStyle = "background"
+showBreadcrumbs = false
+showViews = false
+showLikes = false
+showTableOfContents = true
+groupByYear = false
+cardView = false
+cardViewScreenWidth = false

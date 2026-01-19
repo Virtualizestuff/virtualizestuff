@@ -1,0 +1,32 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "VirtualizeStuff"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+logo = "img/dark_logo.png"
+secondaryLogo = "img/light_logo.png"
+description = "Virtualize Everything!"
+
+[params.author]
+name = "Dave Davis"
+email = "dave@virtualizestuff.com"
+image = "img/me.jpg"
+headline = "Principal, VirtualizeStuff | Platform Architect"
+subtitle = "Available for cloud & Kubernetes consulting"
+bio = "Kubestronaut | Platform Architect"
+links = [
+{ credly = "https://www.credly.com/users/virtualizestuff" },
+{ github = "https://github.com/virtualizestuff" },
+{ youtube = "https://www.youtube.com/@VirtualizeStuff" },
+{ linkedin = "https://www.linkedin.com/in/virtualizstuff/" },
+{ bluesky = "https://bsky.app/profile/virtualizestuff.bsky.social" },
+{ twitter = "https://x.com/VirtualizeStuff" },
+{ email = "mailto:dave@virtualizestuff.com" },
+]
+

@@ -36,3 +36,4 @@ jobs:
           projectName: virtualizestuff
           directory: public
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main

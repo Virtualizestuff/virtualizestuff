@@ -49,5 +49,8 @@
 
   "features": {
     "ghcr.io/devcontainers/features/hugo:1": {}
-  }
+  },
+
+  // Configure git on container creation
+  "postCreateCommand": "git config --global user.name 'Dave Davis' && git config --global user.email 'dave@virtualizestuff.com'"
 }

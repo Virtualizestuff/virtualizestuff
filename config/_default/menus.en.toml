@@ -37,10 +37,10 @@
   weight = 50
 
 # Uncomment when ready to publish Contact page
-#[[main]]
-#  name = "Contact"
-#  pageRef = "contact"
-#  weight = 60
+[[main]]
+  name = "Contact"
+  pageRef = "contact"
+  weight = 60
 
 #[[main]]
 #  name = "Parent"

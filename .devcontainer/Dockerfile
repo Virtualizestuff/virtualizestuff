@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     ca-certificates \
     golang-go \
+    webp \
+    imagemagick \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js 20 LTS (required for blowfish-tools)

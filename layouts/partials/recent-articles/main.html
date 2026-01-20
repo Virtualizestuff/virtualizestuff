@@ -1,0 +1,33 @@
+{{ $recentArticles := 5 }}
+{{ $showMoreLinkDest := "/posts/" }}
+{{ if .Site.Params.homepage.showRecent | default false }}
+{{ if index .Site.Params.homepage "showRecentItems" }}
+{{ $recentArticles = .Site.Params.homepage.showRecentItems }}
+{{ end }}
+<h2 class="mt-8 text-2xl font-extrabold mb-10">{{ i18n "shortcode.recent_articles" | emojify }}</h2>
+
+{{ if and .Site.Params.homepage.cardView (not .Site.Params.homepage.cardViewScreenWidth) | default false }}
+{{ partial "recent-articles/cardview.html" . }}
+{{ else if and .Site.Params.homepage.cardView .Site.Params.homepage.cardViewScreenWidth | default false }}
+{{ partial "recent-articles/cardview-fullwidth.html" . }}
+{{ else }}
+{{ partial "recent-articles/list.html" . }}
+{{ end }}
+
+{{ if .Site.Params.homepage.showMoreLink | default false }}
+<div class="mt-10 flex justify-center gap-4">
+    <a href="/posts/">
+        <button
+            class="bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold py-2 px-4 border border-primary-500 hover:border-transparent rounded">
+            {{ i18n "recent.show_more_posts" | default "See All Posts" }}
+        </button>
+    </a>
+    <a href="/videos/">
+        <button
+            class="bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold py-2 px-4 border border-primary-500 hover:border-transparent rounded">
+            {{ i18n "recent.show_more_videos" | default "See All Videos" }}
+        </button>
+    </a>
+</div>
+{{ end }}
+{{ end }}

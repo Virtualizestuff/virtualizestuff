@@ -27,3 +27,14 @@
 .prose :where(.gist table tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     border: none !important;
 }
+
+/* Custom inline code color - Light mode only background */
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):not(pre code) {
+    color: #F15A24 !important;
+    background-color: #dadada !important;
+}
+
+.dark .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):not(pre code) {
+    color: #F15A24 !important;
+    background-color: #17181C !important;
+}

@@ -20,7 +20,16 @@ hotlinkFeatureImage = false
 fingerprintAlgorithm = "sha512"
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v11.next.forgejo.org"
-firebase = { }
+
+[firebase]
+  apiKey = "AIzaSyDN3g7B_ZI4K5W4A9E5R0zVFqNCjMW8L2Y"
+  authDomain = "virtualizestuff.firebaseapp.com"
+  projectId = "virtualizestuff"
+  storageBucket = "virtualizestuff.firebasestorage.app"
+  messagingSenderId = "626627495984"
+  appId = "1:626627495984:web:c054ee0196999dbc87c5f5"
+  measurementId = "G-MM8V52DR1W"
+
 fathomAnalytics = { }
 umamiAnalytics = { }
 selineAnalytics = { }

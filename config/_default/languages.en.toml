@@ -20,6 +20,7 @@ image = "img/me.jpg"
 headline = "Principal, VirtualizeStuff | Platform Architect"
 subtitle = "Designing scalable cloud and hybrid platforms"
 bio = "Kubestronaut | Platform Architect"
+credentials = "View Verified Credentials"
 links = [
 { credly = "https://www.credly.com/users/virtualizestuff" },
 { github = "https://github.com/virtualizestuff" },
@@ -27,6 +28,6 @@ links = [
 { linkedin = "https://www.linkedin.com/in/virtualizstuff/" },
 { bluesky = "https://bsky.app/profile/virtualizestuff.bsky.social" },
 { twitter = "https://x.com/VirtualizeStuff" },
-{ email = "mailto:dave@virtualizestuff.com" },
+{ email = "mailto:dave@virtualizestuff.com" }
 ]
 

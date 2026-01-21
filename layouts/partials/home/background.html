@@ -87,10 +87,10 @@
                             {{ end }}
                             {{ end }}
                         </div>
-                        <!-- Qualifications text with custom SVG arrow -->
+                        <!-- Credentials text with custom SVG arrow -->
                         <div class="text-primary-800 dark:text-primary-200"
                             style="margin-top: 1.5rem; font-size: 0.90rem; font-weight: 500; position: relative;">
-                            <svg style="position: absolute; left: 50%; top: -15px; margin-left: -108px; width: 26px; height: 26px; pointer-events: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 1.5; animation: blink 1.5s ease-in-out 0.5s 3;"
+                            <svg style="position: absolute; left: 50%; top: -15px; margin-left: -114px; width: 26px; height: 26px; pointer-events: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 1.5; animation: blink 1.5s ease-in-out 0.5s 3; transform: rotate(20deg); transform-origin: right;"
                                 viewBox="0 0 59 65" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="matrix(1,0,0,1,-435.007,-858.871)">
                                     <path
@@ -111,7 +111,7 @@
                                     }
                                 }
                             </style>
-                            View my qualifications
+                            {{ $.Site.Params.Author.credentials }}
                         </div>
                         {{ end }}
                     </div>

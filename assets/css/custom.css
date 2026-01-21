@@ -1,11 +1,18 @@
-/* Increase the default font size */
-html {
-    font-size: 14pt;
+/* Increase font size for article content only (not header/menu) */
+.prose {
+    font-size: 1.125rem !important; /* 18px with default 16px base */
+}
+
+/* Larger font on desktop screens */
+@media (min-width: 768px) {
+    .prose {
+        font-size: 1.25rem !important; /* 20px */
+    }
 }
 
 /* Main menu header logo sizing */
 .main-menu img.logo {
-    height: 3rem !important;
+    height: 4rem !important;
     width: auto;
     max-height: none !important;
     max-width: none !important;

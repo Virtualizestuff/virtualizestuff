@@ -27,7 +27,7 @@ links = [
 { youtube = "https://www.youtube.com/@VirtualizeStuff" },
 { linkedin = "https://www.linkedin.com/in/virtualizstuff/" },
 { bluesky = "https://bsky.app/profile/virtualizestuff.bsky.social" },
-{ twitter = "https://x.com/VirtualizeStuff" },
-{ email = "mailto:dave@virtualizestuff.com" }
+{ twitter = "https://x.com/VirtualizeStuff" }
+#{ email = "mailto:dave@virtualizestuff.com" }
 ]
 
